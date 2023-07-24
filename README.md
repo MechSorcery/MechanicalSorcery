@@ -1,0 +1,2 @@
+# MechanicalSorcery
+A minecraft modpack
