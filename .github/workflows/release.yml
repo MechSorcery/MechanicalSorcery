@@ -1,34 +1,29 @@
 name: Generate Modpack
 
 on:
-  workflow_dispatch:  # Allow manual triggering of the workflow
-  push:
-    branches:
-      - main  # Replace with the branch you want to trigger the release
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Release version for the modpack'
+        required: true
+      release_name:
+        description: 'Release name for the modpack'
+        required: true
 
 jobs:
   generate_modpack:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Request user input for release version and name
+    - name: Set up input parameters
       id: input
       run: |
-        echo "Enter the release version:"
-        read RELEASE_VERSION
-        echo "Enter the release name:"
-        read RELEASE_NAME
-        echo "::set-output name=release_version::$RELEASE_VERSION"
-        echo "::set-output name=release_name::$RELEASE_NAME"
+        echo "::set-output name=release_version::$INPUT_RELEASE_VERSION"
+        echo "::set-output name=release_name::$INPUT_RELEASE_NAME"
 
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: '8'  # Specify Java 8
-        distribution: 'zulu'  # Specify Zulu distribution for Java 8
     - name: Copy files to modpack directory
       run: |
         mkdir modpack
@@ -37,7 +32,9 @@ jobs:
 
     - name: Create manifest.json
       run: |
-        echo '{
+        # Read the template manifest.json
+        cat > modpack/manifest.json << EOF
+        {
           "minecraft": {
             "version": "1.12.2",
             "modLoaders": [
@@ -49,19 +46,23 @@ jobs:
           },
           "manifestType": "minecraftModpack",
           "manifestVersion": 1,
-          "name": "Mechanical Sorcery",  # Replace with the desired release name
-          "version": "1.0.1",  # Replace with the desired release version
+          "name": "${{ steps.input.outputs.release_name }}",
+          "version": "${{ steps.input.outputs.release_version }}",
           "author": "Compec Someoneidk 0mori Nibiru",
           "files": [],
           "overrides": "overrides"
-        }' > modpack/manifest.json
+        }
+        EOF
 
     - name: Package modpack
       run: |
-        zip -r "Mechanical_Sorcery_1.0.1.zip" modpack
+        zip -r "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}.zip" modpack
 
     - name: Upload modpack artifact
       uses: actions/upload-artifact@v2
+      with:
+        name: "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}"
+        path: "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}.zip"
       with:
         name: Mechanical_Sorcery_1.0.1
         path: Mechanical_Sorcery_1.0.1.zip
