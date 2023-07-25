@@ -32,7 +32,9 @@ jobs:
 
     - name: Create manifest.json
       run: |
-        # Read the template manifest.json
+        # Read the template manifest.json and replace the variables
+        RELEASE_VERSION="${{ steps.input.outputs.release_version }}"
+        RELEASE_NAME="${{ steps.input.outputs.release_name }}"
         cat > modpack/manifest.json << EOF
         {
           "minecraft": {
@@ -46,8 +48,8 @@ jobs:
           },
           "manifestType": "minecraftModpack",
           "manifestVersion": 1,
-          "name": "${{ steps.input.outputs.release_name }}",
-          "version": "${{ steps.input.outputs.release_version }}",
+          "name": "$RELEASE_NAME",
+          "version": "$RELEASE_VERSION",
           "author": "Compec Someoneidk 0mori Nibiru",
           "files": [],
           "overrides": "overrides"
@@ -56,13 +58,12 @@ jobs:
 
     - name: Package modpack
       run: |
-        zip -r "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}.zip" modpack
+        # Replace spaces with underscores in the zip file name
+        ZIP_FILE_NAME="${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}.zip"
+        zip -r "$ZIP_FILE_NAME" modpack
 
     - name: Upload modpack artifact
       uses: actions/upload-artifact@v2
       with:
-        name: "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}"
-        path: "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}.zip"
-      with:
-        name: Mechanical_Sorcery_1.0.1
-        path: Mechanical_Sorcery_1.0.1.zip
+        name: "$ZIP_FILE_NAME"
+        path: "$ZIP_FILE_NAME"
