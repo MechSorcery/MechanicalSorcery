@@ -1,0 +1,67 @@
+name: Generate Modpack
+
+on:
+  workflow_dispatch:  # Allow manual triggering of the workflow
+  push:
+    branches:
+      - main  # Replace with the branch you want to trigger the release
+
+jobs:
+  generate_modpack:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Request user input for release name and version
+      id: input
+      run: |
+        echo "Enter the release name:"
+        read RELEASE_NAME
+        echo "Enter the release version:"
+        read RELEASE_VERSION
+        echo "::set-output name=release_name::$RELEASE_NAME"
+        echo "::set-output name=release_version::$RELEASE_VERSION"
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: 1.12
+
+    - name: Copy files to modpack directory
+      run: |
+        mkdir modpack
+        cp -r mods config scripts modpack/
+        echo "overrides" > modpack/overrides
+
+    - name: Create manifest.json
+      run: |
+        echo '{
+          "minecraft": {
+            "version": "1.12.2",
+            "modLoaders": [
+              {
+                "id": "forge-14.23.5.2859",
+                "primary": true
+              }
+            ]
+          },
+          "manifestType": "minecraftModpack",
+          "manifestVersion": 1,
+          "name": ${{ steps.input.outputs.release_name }},
+          "version": ${{ steps.input.outputs.release_version }},
+          "author": "",
+          "files": [],
+          "overrides": "overrides"
+        }' > modpack/manifest.json
+
+    - name: Package modpack
+      run: |
+        zip -r "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}.zip" modpack
+
+    - name: Upload modpack artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}"
+        path: "${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}.zip"
