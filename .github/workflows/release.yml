@@ -35,7 +35,7 @@ jobs:
         # Read the template manifest.json and replace the variables
         RELEASE_VERSION="${{ steps.input.outputs.release_version }}"
         RELEASE_NAME="${{ steps.input.outputs.release_name }}"
-        cat > modpack/manifest.json << EOF
+        cat << EOF > modpack/manifest.json
         {
           "minecraft": {
             "version": "1.12.2",
