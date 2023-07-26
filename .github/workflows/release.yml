@@ -6,9 +6,6 @@ on:
       release_version:
         description: 'Release version for the modpack'
         required: true
-      release_name:
-        description: 'Release name for the modpack'
-        required: true
 
 jobs:
   generate_modpack:
@@ -19,7 +16,6 @@ jobs:
       id: input
       run: |
         echo "::set-output name=release_version::$INPUT_RELEASE_VERSION"
-        echo "::set-output name=release_name::$INPUT_RELEASE_NAME"
 
     - name: Checkout code
       uses: actions/checkout@v2
@@ -34,7 +30,6 @@ jobs:
       run: |
         # Read the template manifest.json and replace the variables
         RELEASE_VERSION="${{ steps.input.outputs.release_version }}"
-        RELEASE_NAME="${{ steps.input.outputs.release_name }}"
         cat << EOF > modpack/manifest.json
         {
           "minecraft": {
@@ -48,7 +43,7 @@ jobs:
           },
           "manifestType": "minecraftModpack",
           "manifestVersion": 1,
-          "name": "$RELEASE_NAME",
+          "name": "Mechanical Sorcery",
           "version": "$RELEASE_VERSION",
           "author": "Compec Someoneidk 0mori Nibiru",
           "files": [],
@@ -59,11 +54,11 @@ jobs:
     - name: Package modpack
       run: |
         # Replace spaces with underscores in the zip file name
-        ZIP_FILE_NAME="${{ steps.input.outputs.release_name }}_${{ steps.input.outputs.release_version }}.zip"
-        zip -r "$ZIP_FILE_NAME" modpack
+        ZIP_FILE_NAME="MechanicalSorcery.zip"
+        zip -r "MechanicalSorcery.sip" modpack
 
     - name: Upload modpack artifact
       uses: actions/upload-artifact@v2
       with:
-        name: "$ZIP_FILE_NAME"
-        path: "$ZIP_FILE_NAME"
+        name: "MechanicalSorcery.zip"
+        path: "MechanicalSorcery.zip"
