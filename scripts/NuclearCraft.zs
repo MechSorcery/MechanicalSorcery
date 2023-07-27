@@ -1,7 +1,6 @@
 import crafttweaker.entity.IEntityLivingBase;
 #modloaded nuclearcraft
 
-recipes.remove(<nuclearcraft:voltaic_pile_basic>);
 recipes.remove(<nuclearcraft:voltaic_pile_advanced>);
 recipes.remove(<nuclearcraft:voltaic_pile_du>);
 recipes.remove(<nuclearcraft:voltaic_pile_elite>);
