@@ -1,5 +1,5 @@
 import crafttweaker.entity.IEntityLivingBase;
-#modloaded nuclearcraft
+#modloaded nuclearcraft hbm
 
 recipes.remove(<nuclearcraft:voltaic_pile_advanced>);
 recipes.remove(<nuclearcraft:voltaic_pile_du>);
@@ -57,3 +57,6 @@ recipes.addShaped("Lithium Ion Cell",
     [[<nuclearcraft:alloy:2>,<nuclearcraft:alloy:2>,<nuclearcraft:alloy:2>],
     [advplate,<nuclearcraft:ingot_block:6>,advplate],
     [<nuclearcraft:alloy:4>,<nuclearcraft:alloy:4>,<nuclearcraft:alloy:4>]]);
+
+# fix inf thorium glitch, tysm 0mori
+mods.nuclearcraft.isotope_separator.removeRecipeWithInput([<hbm:ingot_th232>]);
