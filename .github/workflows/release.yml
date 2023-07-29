@@ -20,11 +20,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+
     - name: Copy files to modpack directory
       run: |
-        mkdir modpack
+        mkdir -p modpack/
         cp -r mods config scripts modpack/
         echo "overrides" > modpack/overrides
+        
+    - name: Download HBM
+      id: download
+      run: |
+        wget -O modpack/mods/hbm-1.8.3a-G.jar "https://github.com/TheOriginalGolem/Hbm-s-Nuclear-Tech-GIT/releases/download/hbm-1.8.3a-G/hbm-1.8.3a-G.jar"
 
     - name: Create manifest.json
       run: |
@@ -46,19 +52,18 @@ jobs:
           "name": "Mechanical Sorcery",
           "version": "$RELEASE_VERSION",
           "author": "Compec Someoneidk 0mori Nibiru",
-          "files": [],
+          "files": [
+            {
+              "projectID": 123, // Replace with the actual project ID of the mod on the hosting platform
+              "fileID": 456    // Replace with the actual file ID of the mod on the hosting platform
+            }
+          ],
           "overrides": "overrides"
         }
         EOF
 
-    - name: Package modpack
-      run: |
-        # Replace spaces with underscores in the zip file name
-        ZIP_FILE_NAME="MechanicalSorcery.zip"
-        zip -r "MechanicalSorcery.sip" modpack
-
     - name: Upload modpack artifact
       uses: actions/upload-artifact@v2
       with:
-        name: "MechanicalSorcery.zip"
-        path: "MechanicalSorcery.zip"
+        name: "Mechanical Sorcery"
+        path: "modpack"
