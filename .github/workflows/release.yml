@@ -34,7 +34,7 @@ jobs:
     - name: Create manifest.json
       run: |
         # Read the template manifest.json and replace the variables
-        RELEASE_VERSION="${{ "gitlatest" }}"
+        RELEASE_VERSION="gitlatest"
         cat << EOF > modpack/manifest.json
         {
           "minecraft": {
