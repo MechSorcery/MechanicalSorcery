@@ -1,6 +1,9 @@
 name: Generate Modpack
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       release_version:
@@ -12,10 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up input parameters
-      id: input
-      run: |
-        echo "::set-output name=release_version::$INPUT_RELEASE_VERSION"
 
     - name: Checkout code
       uses: actions/checkout@v2
@@ -35,14 +34,14 @@ jobs:
     - name: Create manifest.json
       run: |
         # Read the template manifest.json and replace the variables
-        RELEASE_VERSION="${{ steps.input.outputs.release_version }}"
+        RELEASE_VERSION="${{ "gitlatest" }}"
         cat << EOF > modpack/manifest.json
         {
           "minecraft": {
             "version": "1.12.2",
             "modLoaders": [
               {
-                "id": "forge-14.23.5.2859",
+                "id": "forge-14.23.5.2860",
                 "primary": true
               }
             ]
