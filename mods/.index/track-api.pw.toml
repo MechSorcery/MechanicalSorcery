@@ -1,0 +1,14 @@
+name = "Track API"
+filename = "TrackAPI-1.2.jar"
+side = "both"
+
+[download]
+mode = "metadata:curseforge"
+url = ""
+hash-format = "sha1"
+hash = "e63bee0992b0a3403d8a95eb19676ce716691c50"
+
+[update]
+[update.curseforge]
+file-id = 2825260
+project-id = 282613

@@ -1,0 +1,14 @@
+name = "ComputerCraft Addons"
+filename = "Computronics-1.12.2-1.6.6.jar"
+side = "both"
+
+[download]
+mode = "metadata:curseforge"
+url = ""
+hash-format = "sha1"
+hash = "7b7f4b33c905b41c485a3cd1c6f51a8383ae08e4"
+
+[update]
+[update.curseforge]
+file-id = 3202390
+project-id = 446346

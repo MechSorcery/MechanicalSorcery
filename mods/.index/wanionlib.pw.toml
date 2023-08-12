@@ -1,0 +1,14 @@
+name = "WanionLib"
+filename = "WanionLib-1.12.2-2.91.jar"
+side = "both"
+
+[download]
+mode = "metadata:curseforge"
+url = ""
+hash-format = "sha1"
+hash = "68196be7d926aee4fe8b5c0d535909c5b2ce3f2c"
+
+[update]
+[update.curseforge]
+file-id = 4623135
+project-id = 253043

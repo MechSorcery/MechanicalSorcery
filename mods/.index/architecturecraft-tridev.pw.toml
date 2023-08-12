@@ -1,0 +1,14 @@
+name = "ArchitectureCraft - TridentMC Version"
+filename = "architecturecraft-1.12-3.108.jar"
+side = "both"
+
+[download]
+mode = "metadata:curseforge"
+url = ""
+hash-format = "sha1"
+hash = "45a0bff7cdc7d22e7172baeebaf8202c3208bf22"
+
+[update]
+[update.curseforge]
+file-id = 4344128
+project-id = 277631

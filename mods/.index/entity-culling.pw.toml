@@ -1,0 +1,14 @@
+name = "Entity Culling"
+filename = "EntityCulling-1.12.2-6.4.1.jar"
+side = "both"
+
+[download]
+mode = "metadata:curseforge"
+url = ""
+hash-format = "sha1"
+hash = "e362acc3adc5a1be103f1ca04249b4ec1aec0a59"
+
+[update]
+[update.curseforge]
+file-id = 4620881
+project-id = 409087

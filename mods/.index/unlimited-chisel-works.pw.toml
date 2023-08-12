@@ -1,0 +1,14 @@
+name = "Unlimited Chisel Works"
+filename = "UnlimitedChiselWorks-0.3.5.jar"
+side = "both"
+
+[download]
+mode = "metadata:curseforge"
+url = ""
+hash-format = "sha1"
+hash = "66e1d603c8985a903b5c76d697914c5d5365e885"
+
+[update]
+[update.curseforge]
+file-id = 3319307
+project-id = 278493
