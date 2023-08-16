@@ -51,11 +51,6 @@ jobs:
           "name": "Mechanical Sorcery",
           "version": "$RELEASE_VERSION",
           "author": "Compec Someoneidk 0mori Nibiru",
-          "files": [
-            {
-              "projectID": 123, // Replace with the actual project ID of the mod on the hosting platform
-              "fileID": 456    // Replace with the actual file ID of the mod on the hosting platform
-            }
           ],
           "overrides": "overrides"
         }
