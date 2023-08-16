@@ -25,11 +25,6 @@ jobs:
         mkdir -p modpack/
         cp -r mods config scripts modpack/
         echo "overrides" > modpack/overrides
-        
-    - name: Download HBM
-      id: download
-      run: |
-        wget -O modpack/mods/hbm-1.8.3a-G.jar "https://github.com/TheOriginalGolem/Hbm-s-Nuclear-Tech-GIT/releases/download/hbm-1.8.3a-G/hbm-1.8.3a-G.jar"
 
     - name: Create manifest.json
       run: |
