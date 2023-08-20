@@ -46,7 +46,6 @@ jobs:
           "name": "Mechanical Sorcery",
           "version": "$RELEASE_VERSION",
           "author": "Compec Someoneidk 0mori Nibiru",
-          ],
           "overrides": "overrides"
         }
         EOF
