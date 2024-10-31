@@ -1,0 +1,9 @@
+*
+!.*
+!config/*
+!mods/*
+!scripts/*
+!LICENSE
+!README.md
+!launch.sh
+!.gitignore
