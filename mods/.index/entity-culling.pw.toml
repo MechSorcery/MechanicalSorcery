@@ -1,14 +1,13 @@
-name = "Entity Culling"
-filename = "EntityCulling-1.12.2-6.4.1.jar"
-side = "both"
+filename = 'EntityCulling-1.12.2-6.4.3.jar'
+name = 'EntityCulling'
+side = 'both'
 
 [download]
-mode = "metadata:curseforge"
-url = ""
-hash-format = "sha1"
-hash = "e362acc3adc5a1be103f1ca04249b4ec1aec0a59"
+hash = '6cecf04d943834fd2b09953b98d46d9340735e49'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
 
-[update]
 [update.curseforge]
-file-id = 4620881
+file-id = 5096144
 project-id = 409087

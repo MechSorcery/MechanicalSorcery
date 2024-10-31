@@ -1,14 +1,13 @@
-name = "Universal Mod Core"
-filename = "UniversalModCore-1.12.2-forge-1.1.4-2b81e7.jar"
-side = "both"
+filename = 'UniversalModCore-1.12.2-forge-1.2.1.jar'
+name = 'Universal Mod Core'
+side = 'both'
 
 [download]
-mode = "metadata:curseforge"
-url = ""
-hash-format = "sha1"
-hash = "6a6cd834fd1924e9baa4aec555ac0ce59fc36228"
+hash = 'efe50ef6834036fc69b1ae7536921e930ea8f091'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
 
-[update]
 [update.curseforge]
-file-id = 3654955
+file-id = 4975229
 project-id = 371784

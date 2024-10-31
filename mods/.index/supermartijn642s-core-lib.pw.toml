@@ -1,14 +1,13 @@
+filename = '_supermartijn642corelib-1.1.17a-forge-mc1.12.jar'
 name = "SuperMartijn642's Core Lib"
-filename = "_supermartijn642corelib-1.1.12a-forge-mc1.12.jar"
-side = "both"
+side = 'both'
 
 [download]
-mode = "url"
-url = "https://cdn.modrinth.com/data/rOUBggPv/versions/jgTALkct/_supermartijn642corelib-1.1.12a-forge-mc1.12.jar"
-hash-format = "sha512"
-hash = "ff5f9ba7be47574eec928e1d19cc051410feceead7b7616d4d8cfbfbb2c6c3defffc0e3f21486c1e1702224f0cb3d2e979aed530a48279126e3d67149646548a"
+hash = '63a93791f399cb8050b1aa719a90fd7ba054bcdad32885d9ddf7f9e85989aab667d90e1db16f2680a3a365581636973ece04a0517160bb35a14be8b9416bb6df'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/rOUBggPv/versions/kWgChajv/_supermartijn642corelib-1.1.17a-forge-mc1.12.jar'
 
-[update]
 [update.modrinth]
-mod-id = "rOUBggPv"
-version = "jgTALkct"
+mod-id = 'rOUBggPv'
+version = 'kWgChajv'
