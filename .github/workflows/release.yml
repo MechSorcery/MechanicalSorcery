@@ -17,7 +17,7 @@ jobs:
     steps:
 
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
 
     - name: Copy files to modpack directory
@@ -51,7 +51,7 @@ jobs:
         EOF
 
     - name: Upload modpack artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: "Mechanical Sorcery"
         path: "modpack"
