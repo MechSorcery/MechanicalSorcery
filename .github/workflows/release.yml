@@ -19,11 +19,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-
-    - name: Copy files to modpack directory
+    - name: Copy files to minecraft directory within modpack
       run: |
-        mkdir -p modpack/
-        cp -r mods config scripts modpack/
+        mkdir -p modpack/minecraft/
+        cp -r mods config scripts modpack/minecraft/
         echo "overrides" > modpack/overrides
 
     - name: Create manifest.json
@@ -45,7 +44,7 @@ jobs:
           "manifestVersion": 1,
           "name": "Mechanical Sorcery",
           "version": "$RELEASE_VERSION",
-          "author": "Compec Someoneidk 0mori Nibiru",
+          "author": "Compec Someoneidk 0mori",
           "overrides": "overrides"
         }
         EOF
