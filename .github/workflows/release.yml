@@ -45,7 +45,7 @@ jobs:
           "manifestVersion": 1,
           "name": "Mechanical Sorcery",
           "version": "$RELEASE_VERSION",
-          "author": "Compec Someoneidk 0mori Nibiru",
+          "author": "Compec Someoneidk 0mori",
           "overrides": "overrides"
         }
         EOF
