@@ -1,7 +1,7 @@
 *
 !.*
 !config/*
-!mods/*
+!mods/*.jar
 !scripts/*
 !LICENSE
 !README.md
