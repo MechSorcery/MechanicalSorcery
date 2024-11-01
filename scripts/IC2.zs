@@ -13,5 +13,5 @@ recipes.addShaped("Pattern Storage",
 recipes.addShaped("Thermal Centrifuge",
     centrifuge,
     [[<ic2:crafting:5>,<mekanism:machineblock2:13>,<ic2:crafting:5>],
-    [,<ore:ingotIron>,<ic2:resource:13>,<ore:ingotIron>],
-    [,<ore:ingotIron>,<ic2:crafting:6>,,<ore:ingotIron>]]);
+    [<ore:ingotIron>,<ic2:resource:13>,<ore:ingotIron>],
+    [<ore:ingotIron>,<ic2:crafting:6>,,<ore:ingotIron>]]);
