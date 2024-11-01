@@ -1,8 +1,0 @@
-*
-!config/*
-!mods/*.jar
-!scripts/*
-!LICENSE
-!README.md
-!launch.sh
-!.gitignore
